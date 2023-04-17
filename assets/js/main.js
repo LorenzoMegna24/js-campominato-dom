@@ -51,8 +51,12 @@ function tabella() {
     document.querySelector(".griglia").append(casella)
   
     casella.addEventListener("click", function(){
-
-      this.classList.toggle("green")
+      if (!bombeGenerate.includes(i)) {
+        
+        this.classList.add("green")
+      }else{
+        this.classList.add("red")
+      }
 
       console.log(this.innerText);
     })
@@ -77,7 +81,7 @@ function generatoreBombe(paramDiff) {
 
   while (arrayBombe.length < 16) {
     let bomba = numeroRandomico(1, paramDiff)
-    
+
     if(!arrayBombe.includes(bomba)){
       arrayBombe.push(bomba)
     }
