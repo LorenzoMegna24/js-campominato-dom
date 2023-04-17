@@ -30,6 +30,7 @@ function tabella() {
   
   numeroCelle(valoreDifficolta)
 
+
   htmlContainer.innerHTML = ''
 
   let griglia = document.createElement("div")
@@ -37,6 +38,9 @@ function tabella() {
   griglia.classList.add("griglia")
 
   htmlContainer.append(griglia)
+
+  let bombeGenerate = generatoreBombe(valoreDifficolta)
+  console.log(bombeGenerate);
 
   for (let i = 1; i <= valoreDifficolta; i++) {
 
@@ -60,4 +64,25 @@ function numeroCelle(x) {
   x = Math.sqrt(x)
   r.style.setProperty ("--numcelle", x)
   
+}
+
+function numeroRandomico(min, max) {
+  return Math.floor(Math.random() * max) + min
+}
+
+function generatoreBombe(paramDiff) {
+  let arrayBombe = []
+
+  console.log(arrayBombe.length);
+
+  while (arrayBombe.length < 16) {
+    let bomba = numeroRandomico(1, paramDiff)
+    
+    if(!arrayBombe.includes(bomba)){
+      arrayBombe.push(bomba)
+    }
+  }
+  
+
+  return arrayBombe
 }
