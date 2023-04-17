@@ -10,20 +10,13 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 - difficoltà 2 ⇒ 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
 - difficoltà 3 ⇒ 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
  */
-function creaElemento(tag, classe, testo){
-  let element = document.createElement(tag)
-  element.className = classe
-  element.innerText = testo
-  return element
-}
 
 //console.log(creaElemento("div", "casella", "ciao"));
-let griglia = document.querySelector(".griglia")
 let start = document.getElementById("start")
 let difficolta = document.getElementById("difficoltà")
 console.log(difficolta);
 const r = document.querySelector(":root")
-const htmlMain = document.querySelector(".container")
+const htmlContainer = document.querySelector(".container")
 
 
 start.addEventListener("click", function(){
@@ -32,17 +25,26 @@ start.addEventListener("click", function(){
 
 function tabella() {
 
-  htmlMain.innerHTML = ''
-
-  let valoreDifficolta = difficolta.value;
-
+  
+  let valoreDifficolta = parseInt(difficolta.value);
+  
   numeroCelle(valoreDifficolta)
+
+  htmlContainer.innerHTML = ''
+
+  let griglia = document.createElement("div")
+
+  griglia.classList.add("griglia")
+
+  htmlContainer.append(griglia)
 
   for (let i = 1; i <= valoreDifficolta; i++) {
 
-    const casella = creaElemento("div", "casella", i)
+    let casella = document.createElement("div")
+    casella.classList.add("casella")
+    casella.innerText = i
 
-    griglia.append(casella)
+    document.querySelector(".griglia").append(casella)
   
     casella.addEventListener("click", function(){
 
