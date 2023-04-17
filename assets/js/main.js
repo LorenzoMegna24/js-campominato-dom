@@ -42,6 +42,10 @@ function tabella() {
   let bombeGenerate = generatoreBombe(valoreDifficolta)
   console.log(bombeGenerate);
 
+  let sconfitta = document.createElement("div")
+  sconfitta.classList.add("perso")
+  sconfitta.innerHTML = 'hai preso!!'
+
   for (let i = 1; i <= valoreDifficolta; i++) {
 
     let casella = document.createElement("div")
@@ -56,6 +60,11 @@ function tabella() {
         this.classList.add("green")
       }else{
         this.classList.add("red")
+        this.innerHTML = '<i class="fa-solid fa-bomb fa-beat" style="color: #000000;"></i>'
+        const clock = setTimeout(function(){
+          htmlContainer.innerHTML = ''
+          htmlContainer.append(sconfitta)
+        }, 2000)
       }
 
       console.log(this.innerText);

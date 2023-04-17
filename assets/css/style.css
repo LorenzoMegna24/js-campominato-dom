@@ -50,5 +50,11 @@
   background-color: lightgreen;
 }
 .red{
-  background-color: lightcoral;
+  background-color: rgb(245, 56, 56);
+}
+
+.perso{
+  font-size: 100px;
+  text-transform: uppercase;
+  font-weight: bolder;
 }
